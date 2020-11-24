@@ -4,7 +4,9 @@ import com.fzl.mall.model.UmsIntegrationChangeHistory;
 import com.fzl.mall.model.UmsIntegrationChangeHistoryExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UmsIntegrationChangeHistoryMapper {
     long countByExample(UmsIntegrationChangeHistoryExample example);
 

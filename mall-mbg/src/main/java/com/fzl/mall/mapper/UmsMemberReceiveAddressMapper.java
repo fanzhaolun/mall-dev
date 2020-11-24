@@ -4,7 +4,9 @@ import com.fzl.mall.model.UmsMemberReceiveAddress;
 import com.fzl.mall.model.UmsMemberReceiveAddressExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UmsMemberReceiveAddressMapper {
     long countByExample(UmsMemberReceiveAddressExample example);
 

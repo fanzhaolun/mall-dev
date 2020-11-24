@@ -4,7 +4,10 @@ import com.fzl.mall.model.UmsMemberLevel;
 import com.fzl.mall.model.UmsMemberLevelExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UmsMemberLevelMapper {
     long countByExample(UmsMemberLevelExample example);
 

@@ -4,7 +4,9 @@ import com.fzl.mall.model.UmsGrowthChangeHistory;
 import com.fzl.mall.model.UmsGrowthChangeHistoryExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UmsGrowthChangeHistoryMapper {
     long countByExample(UmsGrowthChangeHistoryExample example);
 

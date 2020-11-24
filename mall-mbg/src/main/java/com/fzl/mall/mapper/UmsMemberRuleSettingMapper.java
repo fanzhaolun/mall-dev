@@ -4,7 +4,9 @@ import com.fzl.mall.model.UmsMemberRuleSetting;
 import com.fzl.mall.model.UmsMemberRuleSettingExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UmsMemberRuleSettingMapper {
     long countByExample(UmsMemberRuleSettingExample example);
 

@@ -4,7 +4,9 @@ import com.fzl.mall.model.UmsMemberTag;
 import com.fzl.mall.model.UmsMemberTagExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UmsMemberTagMapper {
     long countByExample(UmsMemberTagExample example);
 

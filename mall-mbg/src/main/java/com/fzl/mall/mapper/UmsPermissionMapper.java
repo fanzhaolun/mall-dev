@@ -4,7 +4,9 @@ import com.fzl.mall.model.UmsPermission;
 import com.fzl.mall.model.UmsPermissionExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UmsPermissionMapper {
     long countByExample(UmsPermissionExample example);
 

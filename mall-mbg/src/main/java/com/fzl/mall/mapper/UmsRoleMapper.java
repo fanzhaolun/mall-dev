@@ -4,7 +4,9 @@ import com.fzl.mall.model.UmsRole;
 import com.fzl.mall.model.UmsRoleExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UmsRoleMapper {
     long countByExample(UmsRoleExample example);
 

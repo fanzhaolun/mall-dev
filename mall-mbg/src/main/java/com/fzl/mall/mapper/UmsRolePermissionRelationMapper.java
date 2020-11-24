@@ -4,7 +4,9 @@ import com.fzl.mall.model.UmsRolePermissionRelation;
 import com.fzl.mall.model.UmsRolePermissionRelationExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UmsRolePermissionRelationMapper {
     long countByExample(UmsRolePermissionRelationExample example);
 

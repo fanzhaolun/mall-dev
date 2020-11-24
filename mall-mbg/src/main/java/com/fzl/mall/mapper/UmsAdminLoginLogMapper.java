@@ -4,7 +4,9 @@ import com.fzl.mall.model.UmsAdminLoginLog;
 import com.fzl.mall.model.UmsAdminLoginLogExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UmsAdminLoginLogMapper {
     long countByExample(UmsAdminLoginLogExample example);
 

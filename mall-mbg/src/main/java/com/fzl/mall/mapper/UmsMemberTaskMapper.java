@@ -4,7 +4,9 @@ import com.fzl.mall.model.UmsMemberTask;
 import com.fzl.mall.model.UmsMemberTaskExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UmsMemberTaskMapper {
     long countByExample(UmsMemberTaskExample example);
 
