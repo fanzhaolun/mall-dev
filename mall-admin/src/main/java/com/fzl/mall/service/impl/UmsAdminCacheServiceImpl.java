@@ -68,31 +68,49 @@ public class UmsAdminCacheServiceImpl implements UmsAdminCacheService {
 
     @Override
     public void delResourceListByRoleIds(List<Long> roleIds) {
-
+        UmsAdminRoleRelationExample example = new UmsAdminRoleRelationExample();
+        example.createCriteria().andRoleIdIn(roleIds);
+        List<UmsAdminRoleRelation> relationList = adminRoleRelationMapper.selectByExample(example);
+        if(CollUtil.isNotEmpty(relationList)){
+            String keyPrefix = REDIS_DATABASE + ":" + REDIS_KEY_RESOUNCE_LIST + ":";
+            List<String> keys = relationList.stream().map(relation -> keyPrefix + relation.getAdminId()).collect(Collectors.toList());
+            redisService.del(keys);
+        }
     }
 
     @Override
     public void delResourceListByResource(Long resourceId) {
+        List<Long> adminIdList = adminRoleRelationDao.getAdminList(resourceId);
+        if(CollUtil.isNotEmpty(adminIdList)){
+            String keyPrefix = REDIS_DATABASE + ":" + REDIS_KEY_RESOUNCE_LIST + ":";
+            List<String> keys = adminIdList.stream().map(adminId -> keyPrefix + adminId).collect(Collectors.toList());
+            redisService.del(keys);
+        }
 
     }
 
     @Override
     public UmsAdmin getAdmin(String username) {
-        return null;
+        String key = REDIS_DATABASE + ":" + REDIS_KEY_ADMIN + ":" + username;
+        return (UmsAdmin) redisService.get(key);
     }
 
     @Override
     public void setAdmin(UmsAdmin admin) {
-
+        String key = REDIS_DATABASE + ":" + REDIS_KEY_ADMIN + ":" + admin.getUsername();
+        redisService.set(key,admin,REDIS_EXPIRE);
     }
 
     @Override
     public List<UmsResource> getResourceList(Long adminId) {
-        return null;
+        String key = REDIS_DATABASE + ":" + REDIS_KEY_RESOUNCE_LIST + ":" + adminId;
+        return (List<UmsResource>) redisService.get(key);
     }
 
     @Override
-    public void setResourceList(Long adminid, List<UmsResource> resourceList) {
+    public void setResourceList(Long adminId, List<UmsResource> resourceList) {
+        String key = REDIS_DATABASE + ":" + REDIS_KEY_RESOUNCE_LIST + ":" + adminId;
+        redisService.set(key,resourceList,REDIS_EXPIRE);
 
     }
 }

@@ -1,6 +1,7 @@
 package com.fzl.mall.service.impl;
 
 import com.fzl.mall.Util.JwtTokenUtil;
+import com.fzl.mall.dao.UmsAdminRoleRelationDao;
 import com.fzl.mall.dto.UmsAdminParam;
 import com.fzl.mall.dto.UpdateAdminPasswordParam;
 import com.fzl.mall.mapper.UmsAdminLoginLogMapper;
@@ -37,6 +38,8 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     private UmsAdminPermissionRelationMapper adminPermissionRelationMapper;
     @Autowired
     private UmsAdminLoginLogMapper umsAdminLoginLogMapper;
+    @Autowired
+    private UmsAdminRoleRelationDao adminRoleRelationDao;
 
     @Override
     public UmsAdmin getAdminByUsername(String username) {
