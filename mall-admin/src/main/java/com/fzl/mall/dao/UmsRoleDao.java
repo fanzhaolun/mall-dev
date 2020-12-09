@@ -25,5 +25,5 @@ public interface UmsRoleDao {
     /**
      * 根据角色ID获取资源
      */
-    List<UmsResource> getResourceByRoleId(@Param("roleId") Long roleId);
+    List<UmsResource> getResourceListByRoleId(@Param("roleId") Long roleId);
 }
